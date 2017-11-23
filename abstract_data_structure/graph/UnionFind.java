@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.Stopwatch;
 
+//路径压缩且加权的并查集
 public class UnionFind {
     private int[] id;
     private int count;
@@ -25,7 +26,7 @@ public class UnionFind {
     }
 
     public int find(int p){
-        return id[p] == p ? p : (id[p] = find(id[p]));
+        return id[p] == p ? p : id[p] = find(id[p]); //路径压缩
     }
 
     public void union(int p, int q){
