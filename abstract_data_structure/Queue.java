@@ -1,10 +1,5 @@
 package ADT;
 
-import edu.princeton.cs.algs4.IndexMinPQ;
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -47,7 +42,6 @@ public class Queue<E> implements Iterable<E>{
      *
      * @return an Iterator.
      */
-    @NotNull
     @Override
     public Iterator<E> iterator() {
         return new ListIterator<E>(first);
@@ -84,37 +78,6 @@ public class Queue<E> implements Iterable<E>{
             current = current.next;
             return elem;
         }
-    }
-
-    public static void main(String[] args) {
-        // insert a bunch of strings
-        String[] strings = { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
-
-        IndexMinPQ<String> pq = new IndexMinPQ<String>(strings.length);
-        for (int i = 0; i < strings.length; i++) {
-            pq.insert(i, strings[i]);
-        }
-
-        // delete and print each key
-        while (!pq.isEmpty()) {
-            int i = pq.delMin();
-            StdOut.println(i + " " + strings[i]);
-        }
-        StdOut.println();
-
-        // reinsert the same strings
-        for (int i = 0; i < strings.length; i++) {
-            pq.insert(i, strings[i]);
-        }
-
-        // print each key using the iterator
-        for (int i : pq) {
-            StdOut.println(i + " " + strings[i]);
-        }
-        while (!pq.isEmpty()) {
-            pq.delMin();
-        }
-
     }
 
 }

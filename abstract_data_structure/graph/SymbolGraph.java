@@ -19,7 +19,7 @@ public class SymbolGraph {
             String[] a = in.readLine().split(sp);
             for (int i = 0; i < a.length; i++)
                 if(!st.contains(a[i]))
-                    st.put(a[i], st.size());
+                    st.put(a[i], st.size());//为每个不同的字符串关联不同的一个索引
         }
         StdOut.println("Done reading " + stream);
 

@@ -37,7 +37,7 @@ public class SequentialSearchST<Key,Value> {
         first = delete(first, key); //递归从链首查找要删除的节点
     }
 
-    public Node delete(Node node, Key key){
+    private Node delete(Node node, Key key){
         if(node == null)
             return null;
         if(node.key.equals(key)){

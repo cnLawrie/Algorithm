@@ -1,7 +1,5 @@
 package ADT;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
@@ -39,7 +37,6 @@ public class Stack<E> implements Iterable<E>{
      *
      * @return an Iterator.
      */
-    @NotNull
     @Override
     public Iterator iterator() {
         return new ListIterator();

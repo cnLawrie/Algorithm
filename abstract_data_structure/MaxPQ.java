@@ -1,7 +1,6 @@
 package ADT;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
+
 
 import java.util.Comparator;
 import java.util.NoSuchElementException;
@@ -12,6 +11,33 @@ public class MaxPQ<Key extends Comparable<Key>> {
     private int N = 0;
     private Comparator<Key> comparator;
 
+    
+    
+    public MaxPQ(int maxN) {
+        pq = (Key[]) new Comparable[maxN + 1];
+    }
+    
+    public MaxPQ(){this(1);}
+    
+    public MaxPQ(int maxN, Comparator<Key> comparator){
+        this.comparator = comparator;
+        pq = (Key[]) new Comparable[maxN];
+    }
+    
+    public MaxPQ(Comparator<Key> comparator){
+        this(1, comparator);
+    }
+    
+    public MaxPQ(Key[] keys){
+        this.N = keys.length;
+        pq = (Key[]) new Comparable[N + 1];
+        for (int i = 0; i < N; i++)
+        pq[i] = keys[i];
+        //建堆 O(2N)
+        for(int k = N/2; k >= 1; k--)
+        sink(k);
+    }
+    
     public void insert(Key v) throws Exception {
         if(N == pq.length - 1)
             resize(2 * pq.length);
@@ -34,13 +60,26 @@ public class MaxPQ<Key extends Comparable<Key>> {
         return max;
     }
 
+    public boolean isEmpty(){
+        return N == 0;
+    }
+    
+    public int size(){
+        return N;
+    }
+    
+    //由下至上的堆有序化（上浮）
+    //如果某个节点比它的父节点更大就会打破堆的有序状态，
+    //这时只要交换它与它的父节点(位置[k/2])，并一遍遍地用同样的方法恢复秩序，
+    //直到遇到一个更大的父节点，堆的有序状态就恢复了
     private void swim(int k){
         while(k > 1 && less(k/2,k)){
             exch(k, k/2);
             k /= 2;
         }
     }
-
+    
+    //由下至上的对有序化（下沉）
     //对于路径上的每个节点，删除最大元素需要两次比较
     private void sink(int k){
         while(2 * k <= N){
@@ -51,7 +90,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
             k = j;
         }
     }
-
+    
     private boolean less(int i, int j){
         if(this.comparator != null){
             return this.comparator.compare(pq[i], pq[j]) < 0;
@@ -59,38 +98,13 @@ public class MaxPQ<Key extends Comparable<Key>> {
             return pq[i].compareTo(pq[j])  == -1;
         }
     }
-
+    
     private void exch(int i, int j){
         Key t = pq[i];
         pq[i] = pq[j];
         pq[j] = t;
     }
-
-    public MaxPQ(int maxN) {
-        pq = (Key[]) new Comparable[maxN + 1];
-    }
-
-    public MaxPQ(){this(1);}
-
-    public MaxPQ(int maxN, Comparator<Key> comparator){
-        this.comparator = comparator;
-        pq = (Key[]) new Comparable[maxN];
-    }
-
-    public MaxPQ(Comparator<Key> comparator){
-        this(1, comparator);
-    }
-
-    public MaxPQ(Key[] keys){
-        this.N = keys.length;
-        pq = (Key[]) new Comparable[N + 1];
-        for (int i = 0; i < N; i++)
-            pq[i] = keys[i];
-        //建堆 O(2N)
-        for(int k = N/2; k >= 1; k--)
-            sink(k);
-    }
-
+    
     private void resize(int capacity){
         assert capacity > N;
         Key[] temp = (Key[]) new Comparable[capacity];
@@ -99,22 +113,5 @@ public class MaxPQ<Key extends Comparable<Key>> {
         }
         pq = temp;
     }
-
-    public boolean isEmpty(){
-        return N == 0;
-    }
-
-    public int size(){
-        return N;
-    }
-
-    public static void main(String[] args) throws Exception {
-        MaxPQ<String> pq = new MaxPQ<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if (!item.equals("-")) pq.insert(item);
-            else if (!pq.isEmpty()) StdOut.print(pq.delMax() + " ");
-        }
-        StdOut.println("(" + pq.size() + " left on pq)");
-    }
+   
 }

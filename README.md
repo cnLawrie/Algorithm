@@ -4,7 +4,7 @@ Java描述的数据结构与算法
     - [背包](./abstract_data_structure/Bag.java)
     - [栈](./abstract_data_structure/Stack.java)
     - [队列](./abstract_data_structure/Queue.java)
-    - [大根堆](./abstract_data_structure/MaxPQ.jav)
+    - [大根堆](./abstract_data_structure/MaxPQ.java)
 
 - 排序
     - [选择排序](./sort/Selection.java)
@@ -16,7 +16,7 @@ Java描述的数据结构与算法
     - [堆排序](./sort/Heap.java)
   
 - 查找表
-    - [无序链表中顺序查找](./abstract_data_structure/SequentialSearchST.java)
+    - [无序链表中顺序查找](./abstract_data_structure/search/SequentialSearchST.java)
     - [有序数组中二分查找](./abstract_data_structure/BinarySearchST.java)
     - [二叉查找树](./abstract_data_structure/BST.java)
     - [红黑树](./abstract_data_structure/search/RedBlackBST.java)
@@ -27,9 +27,9 @@ Java描述的数据结构与算法
         - [无向图数据结构](./abstract_data_structure/graph/Graph.java)
         - [深度优先搜索](./abstract_data_structure/graph/DepthFirstSearch.java)
         - [深度优先搜索路径](./abstract_data_structure/graph/DepthFirstPaths.java)
-        - [深度优先搜索找连通分量](./abstract_data_structure/graph/ConnectedCompnent.java)
+        - [深度优先搜索找连通分量](./abstract_data_structure/graph/ConnectedComponent.java)
         - [深度优先搜索找环](./abstract_data_structure/graph/DepthFirstCycle.java)
-        - [广度优先搜索](./abstract_data_structure/graph/BreathFirstPaths.java)
+        - [广度优先搜索](./abstract_data_structure/graph/BreadthFirstPaths.java)
         - [并查集](./abstract_data_structure/graph/UnionFind.java)
         - [符号图](./abstract_data_structure/graph/SymbolGraph.java)
     - 有向图

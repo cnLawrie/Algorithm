@@ -20,7 +20,7 @@ public class ConnectedComponent {
 
     }
 
-    public void dfs(Graph G, int v){
+    private void dfs(Graph G, int v){
         marked[v] = true;
         id[v] = count;
         for (int w: G.adj(v))

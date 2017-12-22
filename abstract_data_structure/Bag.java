@@ -1,14 +1,5 @@
 package ADT;
 
-import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
@@ -21,6 +12,7 @@ public class Bag<E> implements Iterable<E>{
         Node<E> next;
     }
 
+    //添加一个元素
     public void add(E elem){
         Node oldfirst = first;
         first = new Node();
@@ -53,18 +45,5 @@ public class Bag<E> implements Iterable<E>{
         }
     }
 
-    public static void main(String[] args) {
-        Bag<String> bag = new Bag<String>();
-        while (!StdIn.isEmpty()) {
-            String item = StdIn.readString();
-            if(item.equals("quit"))
-                break;
-            bag.add(item);
-        }
-
-        for (String s : bag) {
-            StdOut.println(s);
-        }
-    }
 }
 
