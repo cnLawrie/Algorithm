@@ -17,19 +17,10 @@ Java描述的数据结构与算法
   
 - 查找表
     - [无序链表中顺序查找](./abstract_data_structure/search/SequentialSearchST.java)
-<<<<<<< HEAD
-    - [有序数组中二分查找](./abstract_data_structure/BinarySearchST.java)
-    - [二叉查找树](./abstract_data_structure/BST.java)
+    - [有序数组中二分查找](./abstract_data_structure/search/BinarySearchST.java)
+    - [二叉查找树](./abstract_data_structure/search/BST.java)
     - [红黑树](./abstract_data_structure/search/RedBlackBST.java)
-    - [基于拉链法的散列表](./abstract_data_structure/SeparateChaningHashST.java)
-    - [基于线性探测法的散列表](./abstract_data_structure/LinearProbingHashST.java)
-=======
-    - [有序数组中二分查找](./abstract_data_structure//searchBinarySearchST.java)
-    - [二叉查找树](./abstract_data_structure//searchBST.java)
-    - [红黑树](./abstract_data_structure/search//searchRedBlackBST.java)
-    - [基于拉链法的散列表](./abstract_data_structure/search/SeparateChaningHashST.java)
-    - [基于线性探测法的散列表](./abstract_data_structure/search/LinearProbingHashST.java)
->>>>>>> ea8d6b57f31233e018c919c740119f1cc6854013
+
 - 图
     - 无向图
         - [无向图数据结构](./abstract_data_structure/graph/Graph.java)
